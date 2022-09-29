@@ -1,0 +1,23 @@
+
+.date {
+    text-align: center;
+    border: 1px solid black;
+    padding: 0.5rem;
+    border-radius: 10px;
+    min-width: 70px;
+    min-height: 70px;
+    margin-right: 0.5rem;
+}
+
+.month {
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.day {
+    font-size: 2rem;
+}
+
+.hour {
+    font-size: 0.8rem;
+}

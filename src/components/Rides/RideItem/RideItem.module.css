@@ -1,0 +1,11 @@
+
+.ride-item {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}

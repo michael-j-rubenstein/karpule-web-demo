@@ -1,0 +1,26 @@
+
+.wrapper {
+    max-width: 50rem;
+    width: 90%;
+    margin: 3rem auto;
+}
+
+.rides-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+
+.rides-list {
+    padding: 0;
+}
+
+.rides-item:first-child {
+    padding-top: 0;
+}
+
+.rides-item:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
+}

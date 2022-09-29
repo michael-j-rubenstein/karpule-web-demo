@@ -1,0 +1,25 @@
+
+.ride-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.details-price {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.3rem;
+}
+
+.price {
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+.price::before {
+    content: "$";
+}
