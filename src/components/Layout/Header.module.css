@@ -1,0 +1,43 @@
+
+.header-wrapper {
+    background-color: white;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: calc(50% - 72px);
+    width: 50%;
+    z-index: 10;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin: 0.8rem 0;
+}
+
+.header button {
+    background: transparent;
+    border: 0;
+}
+
+.header button:hover {
+    cursor: pointer;
+    color: rgba(0, 0 , 0, 0.7)
+}
+
+.back-drop-wrapper {
+    overflow: hidden;
+    background-color: #3f3f3f;
+}
+
+.back-drop {
+    background-color: blueviolet;
+    width: 110%;
+    height: 15rem;
+    transform: rotateZ(-4deg) translateY(-6rem) translateX(-1rem);
+    z-index: 0;
+    object-fit: cover;
+    overflow: hidden;
+}

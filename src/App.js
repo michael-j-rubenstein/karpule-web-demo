@@ -1,7 +1,13 @@
-
+import Header from "./components/Layout/Header";
+import Rides from "./components/Rides/Rides";
 
 const App = () => {
-    return <p>hi</p>;
-}
+  return (
+    <>
+      <Header></Header>
+      <Rides></Rides>
+    </>
+  );
+};
 
 export default App;

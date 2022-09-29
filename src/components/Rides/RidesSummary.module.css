@@ -1,0 +1,16 @@
+
+.summary {
+    max-width: 40rem;
+    width: 90%;
+    margin: -10rem auto 0;
+    position: relative;
+    text-align: center;
+    line-height: 1.8;
+    background-color: #383838;
+    color: white;
+}
+
+.summary h2 {
+    font-size: 2rem;
+    margin-top: 0;
+}
