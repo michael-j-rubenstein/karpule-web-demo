@@ -45,7 +45,8 @@ p {
 }
 
 .btn {
-    background: none;
+    background: #8063B1;
+    color: white;
     border: none;
     padding: 0.5rem 1rem;
     outline: none;
