@@ -4,7 +4,7 @@ import Rides from "./components/Rides/Rides";
 import PostRide from "./components/PostRide/PostRide";
 
 const App = () => {
-  const [showRideForm, setShowRideForm] = useState(false);
+  const [showRideForm, setShowRideForm] = useState(true);
 
   const showFormHandler = () => {
     setShowRideForm(true);
@@ -16,7 +16,7 @@ const App = () => {
 
   return (
     <>
-      {showRideForm && <PostRide></PostRide>}
+      {showRideForm && <PostRide onClose={hideFormHandler}></PostRide>}
       <Header></Header>
       <Rides></Rides>
     </>

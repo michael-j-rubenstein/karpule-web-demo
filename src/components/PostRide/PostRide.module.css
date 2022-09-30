@@ -1,31 +1,140 @@
 
 .title {
     text-align: center;
+    margin-top: 1rem;
+    color: #8063b1;
 }
 
 .input-group {
     padding: 0 2rem 1rem;
+    max-width: 200px;
+    margin: 0 auto;
 }
 
 .input-group-checkbox {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    margin-left: -0.7rem;
+    margin: 0.5rem 2rem;
     gap: 0.5rem;
     margin-bottom: 1rem;
 }
 
 .input-group label {
     display: block;
+    margin-bottom: 0.4rem;
+    color: #2f2f2f;
+    font-size: 0.9rem;
 }
 
 .input-group input {
     display: block;
-    width: 95%;
+    border: 0;
+    box-shadow: 0 0 5px 2px rgba(204, 204, 204, 0.4);
+    border-radius: 30px;
+    padding: 0.5rem 1rem;
+    width: 85%;
+    font-size: 0.8rem;
+    margin: 1px 0;
+    color: #2f2f2f;
+}
+
+.input-group input:focus {
+    outline-style: none;
+    box-shadow: none;
+    border: 1px solid #8063B1;
+    margin: 0;
 }
 
 .btn {
     margin-left: 1rem;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.3rem;
+    background-color: transparent;
+    border: 0;
+    border-radius: 12px;
+    box-shadow: 0 0 5px 2px rgba(204, 204, 204, 0.4);
+}
+
+.close-icon {
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-top: 0.1rem;
+    background-color: transparent;
+    border: 0;
+}
+
+.close-icon:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+@media screen and (min-width: 340px) {
+    .input-group-checkbox {
+        justify-content: center;
+    }
+
+    .input-group-checkbox input {
+        position: relative;
+        top: 1px;
+    }
+
+    .input-group-checkbox label {
+        padding-left: 0.3rem;
+    }
+}
+
+@media screen and (min-width: 500px) {
+    .inputs-group {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 700px;
+        margin: 0 1rem;
+        gap: 1rem;
+    }
+
+    .input-group {
+        max-width: none;
+        margin: 0;
+        padding: 0 0 1rem;
+        flex-basis: 50%;
+    }
+
+    .input-group input {
+        width: 90%;
+    }
+
+    .email-input-group {
+        max-width: 700px;
+        margin: 0 1rem;
+        width: 100%;
+    }
+
+    .email-input-group input {
+        width: 90%;
+    }
+
+    .input-group-checkbox {
+        margin: 1rem 2rem;
+        gap: 5rem;
+    }
+}
+
+@media screen and (min-width: 780px) {
+    .inputs-group {
+        margin: 0 auto;
+    }
+
+    .email-input-group {
+        max-width: 700px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .email-input-group input {
+        width: 95%;
+    }
 }
