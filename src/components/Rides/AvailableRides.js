@@ -7,30 +7,6 @@ import styles from "./AvailableRides.module.css";
 
 import plus from "../../images/plus-sign.svg";
 
-const RIDES_DATA = [
-  {
-    key: "r1",
-    date: new Date(2022, 8, 29, 11, 30),
-    destination: "Logan International Airport",
-    seats: 3,
-    price: 20,
-  },
-  {
-    key: "r2",
-    date: new Date(2022, 8, 31, 10),
-    destination: "Logan International Airport Terminal 2",
-    seats: 2,
-    price: 15,
-  },
-  {
-    key: "r3",
-    date: new Date(2022, 9, 3, 16, 25),
-    destination: "New York City!",
-    seats: 2,
-    price: 30,
-  },
-];
-
 const AvailableRides = (props) => {
   const [rides, setRides] = useState([]);
 

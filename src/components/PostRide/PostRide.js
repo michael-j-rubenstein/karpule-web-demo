@@ -25,7 +25,7 @@ const PostRide = (props) => {
     const enteredSeats = seatsInputRef.current.value;
     const enteredDate = dateInputRef.current.value;
     const enteredTime = timeInputRef.current.value;
-    const enteredConfirm = confirmInputRef.current.value;
+    // const enteredConfirm = confirmInputRef.current.value;
 
     console.log(
       nameInputRef.current.value,
