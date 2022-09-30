@@ -21,12 +21,6 @@ input {
     -webkit-appearance: none;
 }
 
-input[type="date"]:before {
-    color: lightgrey;
-    content: attr(placeholder) !important;
-    margin-right: 0.5em;
-  }
-
 .input-group-checkbox {
     display: flex;
     justify-content: space-between;

@@ -105,12 +105,7 @@ const PostRide = (props) => {
         <div className={styles["inputs-group"]}>
           <div className={styles["input-group"]}>
             <label htmlFor="date">Departure Date</label>
-            <input
-              type="date"
-              id="date"
-              ref={dateInputRef}
-              placeholder="yyyy-mm-dd"
-            />
+            <input type="date" id="date" ref={dateInputRef} />
           </div>
           <div className={styles["input-group"]}>
             <label htmlFor="time">Departure Time</label>
