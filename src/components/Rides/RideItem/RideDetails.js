@@ -8,7 +8,7 @@ const RideDetails = (props) => {
         <p>Avalilable Seats: {props.seats}</p>
       </div>
       <div className={styles["details-price"]}>
-        <div className={styles.price}>19</div>
+        <div className={styles.price}>{props.price}</div>
         <button>Join Ride</button>
       </div>
     </div>

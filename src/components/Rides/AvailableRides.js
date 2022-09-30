@@ -16,14 +16,14 @@ const RIDES_DATA = [
     date: new Date(2022, 8, 31, 10),
     destination: "Logan International Airport Terminal 2",
     seats: 2,
-    price: 19.99,
+    price: 15,
   },
   {
     key: "r3",
     date: new Date(2022, 9, 3, 8, 25),
-    destination: "Logan International Airport Terminal 2",
+    destination: "New York City!",
     seats: 2,
-    price: 19.99,
+    price: 30,
   },
 ];
 
