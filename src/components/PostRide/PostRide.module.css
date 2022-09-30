@@ -23,7 +23,6 @@ input {
 
 input[type='date'],
 input[type='time'] {
-    content: 'yyyy-mm-dd';
     background-color: transparent;
 }
 
