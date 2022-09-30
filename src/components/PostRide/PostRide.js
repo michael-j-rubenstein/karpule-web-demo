@@ -3,8 +3,35 @@ import Modal from "../UI/Modal";
 import closeIcon from "../../images/close.svg";
 
 import styles from "./PostRide.module.css";
+import { useRef } from "react";
 
 const PostRide = (props) => {
+  const nameInputRef = useRef();
+  const numberInputRef = useRef();
+  const emailInputRef = useRef();
+  const destInputRef = useRef();
+  const seatsInputRef = useRef();
+  const dateInputRef = useRef();
+  const timeInputRef = useRef();
+  const confirmInputRef = useRef();
+
+  const sumbitHandler = (event) => {
+    event.preventDefault();
+
+    console.log(
+      nameInputRef.current.value,
+      numberInputRef.current.value,
+      emailInputRef.current.value,
+      destInputRef.current.value,
+      seatsInputRef.current.value,
+      dateInputRef.current.value,
+      timeInputRef.current.value,
+      confirmInputRef.current.value
+    );
+
+    props.onClose();
+  };
+
   return (
     <Modal onClose={props.onClose}>
       <img
@@ -13,46 +40,52 @@ const PostRide = (props) => {
         className={styles["close-icon"]}
       ></img>
       <h2 className={styles.title}>Post a Ride</h2>
-      <form>
+      <form onSubmit={sumbitHandler}>
         <div className={styles["inputs-group"]}>
           <div className={styles["input-group"]}>
             <label htmlFor="name">Name</label>
-            <input type="text" id="name" />
+            <input type="text" id="name" ref={nameInputRef} />
           </div>
           <div className={styles["input-group"]}>
             <label htmlFor="number">Number</label>
-            <input type="number" id="number" />
+            <input type="number" id="number" ref={numberInputRef} />
           </div>
         </div>
         <div
           className={`${styles["input-group"]} ${styles["email-input-group"]}`}
         >
           <label htmlFor="email">School Email</label>
-          <input type="email" id="email" />
+          <input type="email" id="email" ref={emailInputRef} />
         </div>
         <div className={styles["inputs-group"]}>
           <div className={styles["input-group"]}>
             <label htmlFor="dest">Destination</label>
-            <input type="text" id="dest" maxLength={50} />
+            <input type="text" id="dest" maxLength={50} ref={destInputRef} />
           </div>
           <div className={styles["input-group"]}>
             <label htmlFor="seats">Available Seats</label>
-            <input type="number" id="seats" step={1} min={1} />
+            <input
+              type="number"
+              id="seats"
+              step={1}
+              min={1}
+              ref={seatsInputRef}
+            />
           </div>
         </div>
         <div className={styles["inputs-group"]}>
           <div className={styles["input-group"]}>
             <label htmlFor="date">Departure Date</label>
-            <input type="date" id="date" />
+            <input type="date" id="date" ref={dateInputRef} />
           </div>
           <div className={styles["input-group"]}>
             <label htmlFor="time">Departure Time</label>
-            <input type="time" id="time" />
+            <input type="time" id="time" ref={timeInputRef} />
           </div>
         </div>
         <div className={styles["input-group-checkbox"]}>
           <div>
-            <input type="checkbox" id="terms" />
+            <input type="checkbox" id="terms" ref={confirmInputRef} />
             <label htmlFor="terms">Confirm Ride</label>
           </div>
           <button className={styles.btn}>Submit</button>

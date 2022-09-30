@@ -23,6 +23,13 @@
     animation: slide-down 300ms ease-out forwards;
 }
 
+@media screen and (min-width: 1100px) {
+    .modal {
+        width: 1000px;
+        left: calc(50% - 500px);
+    }
+}
+
 
 @keyframes slide-down {
     from {

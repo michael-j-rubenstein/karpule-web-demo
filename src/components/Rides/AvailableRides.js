@@ -29,7 +29,7 @@ const RIDES_DATA = [
   },
 ];
 
-const AvailableRides = () => {
+const AvailableRides = (props) => {
   const rideData = RIDES_DATA.map((data) => {
     return (
       <RideItem
@@ -48,7 +48,7 @@ const AvailableRides = () => {
     <div className={styles["wrapper"]}>
       <div className={styles["rides-title"]}>
         <h2>Current Rides</h2>
-        <button>
+        <button onClick={props.postRide}>
           <img src={plus} alt="" className={styles.plus}></img> Post a Ride
         </button>
       </div>

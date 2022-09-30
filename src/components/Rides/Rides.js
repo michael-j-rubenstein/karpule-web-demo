@@ -1,11 +1,15 @@
 import RidesSummary from "./RidesSummary";
 import AvailableRides from "./AvailableRides";
 
-const Rides = () => {
+const Rides = (props) => {
+  const postRideHandler = () => {
+    props.postRide();
+  };
+
   return (
     <>
       <RidesSummary></RidesSummary>
-      <AvailableRides></AvailableRides>
+      <AvailableRides postRide={postRideHandler}></AvailableRides>
     </>
   );
 };
