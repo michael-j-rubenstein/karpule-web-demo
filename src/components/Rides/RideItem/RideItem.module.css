@@ -1,11 +1,20 @@
 
 .ride-item {
     display: flex;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 0;
     align-items: center;
     justify-content: space-between;
     padding: 0;
     border-bottom: 1px solid #ccc;
     margin-bottom: 1rem;
-    padding: 1rem;
+    padding: 0rem;
+}
+
+@media screen and (min-width: 550px) {
+    .ride-item {
+        flex-direction: row;
+        gap: 1rem;
+        padding: 1rem;
+    }
 }

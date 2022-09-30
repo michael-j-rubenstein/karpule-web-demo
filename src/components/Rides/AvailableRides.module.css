@@ -12,6 +12,21 @@
     color: white;
 }
 
+.rides-title button {
+    background-color: #3fdd7f;
+    border: none;
+    padding: 0.5rem 1rem;
+    outline: none;
+    box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.rides-title button:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
 .rides-list {
     padding: 0;
 }
@@ -23,4 +38,9 @@
 .rides-item:last-child {
     padding-bottom: 0;
     border-bottom: 0;
+}
+
+.plus {
+    width: 0.7rem;
+    height: 0.7rem;
 }

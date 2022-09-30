@@ -33,7 +33,7 @@
 }
 
 .back-drop {
-    background-color: blueviolet;
+    background-color: #8063B1;
     width: 110%;
     height: 15rem;
     transform: rotateZ(-4deg) translateY(-6rem) translateX(-1rem);

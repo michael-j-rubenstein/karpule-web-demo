@@ -3,6 +3,8 @@ import RideItem from "./RideItem/RideItem";
 
 import styles from "./AvailableRides.module.css";
 
+import plus from "../../images/plus-sign.svg";
+
 const RIDES_DATA = [
   {
     key: "r1",
@@ -20,7 +22,7 @@ const RIDES_DATA = [
   },
   {
     key: "r3",
-    date: new Date(2022, 9, 3, 8, 25),
+    date: new Date(2022, 9, 3, 16, 25),
     destination: "New York City!",
     seats: 2,
     price: 30,
@@ -46,7 +48,9 @@ const AvailableRides = () => {
     <div className={styles["wrapper"]}>
       <div className={styles["rides-title"]}>
         <h2>Current Rides</h2>
-        <button>Post a Ride</button>
+        <button>
+          <img src={plus} alt="" className={styles.plus}></img> Post a Ride
+        </button>
       </div>
       <Card>
         <ul className={styles["rides-list"]}>{rideData}</ul>

@@ -9,7 +9,7 @@ const RideDetails = (props) => {
       </div>
       <div className={styles["details-price"]}>
         <div className={styles.price}>{props.price}</div>
-        <button>Join Ride</button>
+        <button className={styles["btn"]}>Join Ride</button>
       </div>
     </div>
   );

@@ -5,20 +5,22 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    max-width: 400px;
+    margin-bottom: 1rem;
 }
 
 .ride-info {
     display: flex;
     flex-direction: column;
-    height: 5.5rem;
+    min-height: 5rem;
     justify-content: space-between;
 }
 
 h3 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     padding: 0;
     margin: 0;
-    max-width: 30rem;
+    max-width: 10rem;
 }
 
 p {
@@ -40,4 +42,40 @@ p {
 
 .price::before {
     content: "$";
+}
+
+.btn {
+    background: none;
+    border: none;
+    padding: 0.5rem 1rem;
+    outline: none;
+    box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}
+
+.btn:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+@media screen and (min-width: 550px) {
+    .ride-details {
+        max-width: 100%;
+        margin-bottom: 0;
+    }
+    
+    h3 {
+        max-width: 13rem;
+    }
+    
+}
+
+
+@media screen and (min-width: 768px) {
+    
+    h3 {
+        font-size: 1.5rem;
+        max-width: 28rem;
+    }
+    
 }
