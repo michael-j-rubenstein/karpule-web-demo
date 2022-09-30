@@ -3,7 +3,7 @@ import styles from "./RideDetails.module.css";
 const RideDetails = (props) => {
   return (
     <div className={styles["ride-details"]}>
-      <div>
+      <div className={styles["ride-info"]}>
         <h3>{props.destination}</h3>
         <p>Avalilable Seats: {props.seats}</p>
       </div>

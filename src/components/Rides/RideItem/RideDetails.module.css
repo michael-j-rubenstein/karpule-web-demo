@@ -7,6 +7,24 @@
     width: 100%;
 }
 
+.ride-info {
+    display: flex;
+    flex-direction: column;
+    height: 5.5rem;
+    justify-content: space-between;
+}
+
+h3 {
+    font-size: 1.5rem;
+    padding: 0;
+    margin: 0;
+    max-width: 30rem;
+}
+
+p {
+    margin: 0;
+}
+
 .details-price {
     display: flex;
     flex-direction: column;
