@@ -15,8 +15,17 @@ const PostRide = (props) => {
   const timeInputRef = useRef();
   const confirmInputRef = useRef();
 
-  const sumbitHandler = (event) => {
+  const sumbitHandler = async (event) => {
     event.preventDefault();
+
+    const enteredName = nameInputRef.current.value;
+    const enteredNum = numberInputRef.current.value;
+    const enteredEmail = emailInputRef.current.value;
+    const enteredDest = destInputRef.current.value;
+    const enteredSeats = seatsInputRef.current.value;
+    const enteredDate = dateInputRef.current.value;
+    const enteredTime = timeInputRef.current.value;
+    const enteredConfirm = confirmInputRef.current.value;
 
     console.log(
       nameInputRef.current.value,
@@ -27,6 +36,25 @@ const PostRide = (props) => {
       dateInputRef.current.value,
       timeInputRef.current.value,
       confirmInputRef.current.value
+    );
+
+    const userData = {
+      name: enteredName,
+      number: enteredNum,
+      email: enteredEmail,
+      dest: enteredDest,
+      seats: enteredSeats,
+      date: enteredDate,
+      time: enteredTime,
+      riders: {},
+    };
+
+    await fetch(
+      "https://karpule-web-demo-default-rtdb.firebaseio.com/rides.json",
+      {
+        method: "POST",
+        body: JSON.stringify(userData),
+      }
     );
 
     props.onClose();
