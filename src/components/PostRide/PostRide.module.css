@@ -11,13 +11,11 @@
     margin: 0 auto;
 }
 
-input, input:before, input:after {
-    -webkit-user-select: initial;
-    -khtml-user-select: initial;
-    -moz-user-select: initial;
-    -ms-user-select: initial;
-    user-select: initial;
-} 
+input {
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
 
 .input-group-checkbox {
     display: flex;
