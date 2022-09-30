@@ -30,7 +30,8 @@
 @media screen and (min-width: 550px) {
     .date {
         width: 70px;
-        min-width: 70px;
+        min-width: 75px;
+        min-height: 75px;
         margin-right: 0.5rem;
         margin-bottom: 0;
     }
