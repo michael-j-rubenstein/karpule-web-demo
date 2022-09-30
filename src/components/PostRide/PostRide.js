@@ -66,6 +66,7 @@ const PostRide = (props) => {
         srcSet={closeIcon}
         onClick={props.onClose}
         className={styles["close-icon"]}
+        alt=""
       ></img>
       <h2 className={styles.title}>Post a Ride</h2>
       <form onSubmit={sumbitHandler}>
