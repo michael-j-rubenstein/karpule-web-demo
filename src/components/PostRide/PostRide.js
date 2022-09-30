@@ -106,10 +106,10 @@ const PostRide = (props) => {
           <div className={styles["input-group"]}>
             <label htmlFor="date">Departure Date</label>
             <input
-              type="text"
-              onFocus={(this.type = "date")}
+              type="date"
               id="date"
               ref={dateInputRef}
+              placeholder="yyyy-mm-dd"
             />
           </div>
           <div className={styles["input-group"]}>
