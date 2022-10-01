@@ -312,6 +312,7 @@ const PostRide = (props) => {
               href="https://drive.google.com/file/d/1CHZS2bQXG3eSu5ohTxw5y6GaIpyTNzGG/view?usp=sharing"
               alt="Terms and Conditions"
               target="_blank"
+              rel="noreferrer"
             >
               Terms and Conditions
             </a>
