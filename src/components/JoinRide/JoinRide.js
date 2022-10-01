@@ -46,20 +46,6 @@ const JoinRide = (props) => {
 
     if (formNotValid) return;
 
-    const numRiders = Object.keys(props.riders).length;
-    const newRiderID = `R${numRiders}`;
-    const newRiders = {
-      ...props.riders,
-      newRiderID: {
-        firstName: fNameInputRef.current.value,
-        lastName: lNameInputRef.current.value,
-        num: numberInputRef.current.value,
-        email: emailInputRef.current.value,
-        paymentFile: fileInputRef.current.value,
-        confirm: confirmInputRef.current.value,
-      },
-    };
-
     console.log(props.riders);
 
     await fetch(
