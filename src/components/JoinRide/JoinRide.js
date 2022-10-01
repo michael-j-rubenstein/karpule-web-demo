@@ -13,7 +13,8 @@ const isValidEmail = (value) => {
 };
 
 const JoinRide = (props) => {
-  const [file, setFile] = useState();
+  const [file, setFile] = useState("Choose a file");
+  const [emailIsValid, setEmailIsValid] = useState(true);
 
   const fNameInputRef = useRef();
   const lNameInputRef = useRef();
@@ -22,9 +23,63 @@ const JoinRide = (props) => {
   const fileInputRef = useRef();
   const confirmInputRef = useRef();
 
-  const formSubmitHandler = (event) => {
+  const fileChangeHandler = (event) => {
+    const path = event.target.value.split("\\");
+    const lastIndex = path.length - 1;
+    setFile("File Uploaded: " + path[lastIndex]);
+  };
+
+  const formSubmitHandler = async (event) => {
     event.preventDefault();
-    console.log(fileInputRef.current.value);
+
+    if (!isValidEmail(emailInputRef.current.value)) {
+      setEmailIsValid(false);
+    } else setEmailIsValid(true);
+
+    const formNotValid =
+      isEmpty(fNameInputRef.current.value) ||
+      isEmpty(lNameInputRef.current.value) ||
+      isEmpty(numberInputRef.current.value) ||
+      !isValidEmail(emailInputRef.current.value) ||
+      isEmpty(fileInputRef.current.value) ||
+      isEmpty(confirmInputRef.current.value);
+
+    if (formNotValid) return;
+
+    const numRiders = Object.keys(props.riders).length;
+    const newRiderID = `R${numRiders}`;
+    const newRiders = {
+      ...props.riders,
+      newRiderID: {
+        firstName: fNameInputRef.current.value,
+        lastName: lNameInputRef.current.value,
+        num: numberInputRef.current.value,
+        email: emailInputRef.current.value,
+        paymentFile: fileInputRef.current.value,
+        confirm: confirmInputRef.current.value,
+      },
+    };
+
+    console.log(props.riders);
+
+    await fetch(
+      "https://karpule-web-demo-default-rtdb.firebaseio.com/rides/" +
+        props.rideId +
+        "/riders.json",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          firstName: fNameInputRef.current.value,
+          lastName: lNameInputRef.current.value,
+          num: numberInputRef.current.value,
+          email: emailInputRef.current.value,
+          paymentFile: fileInputRef.current.value,
+          confirm: confirmInputRef.current.value,
+        }),
+      }
+    );
+
+    props.onClose();
   };
 
   return (
@@ -65,11 +120,11 @@ const JoinRide = (props) => {
         >
           <label htmlFor="email">School Email</label>
           <input type="email" id="email" ref={emailInputRef} required />
-          {/* {!emailIsValid && (
-                  <p className={styles.error}>
-                    Please use your @babson.edu email address
-                  </p>
-                )} */}
+          {!emailIsValid && (
+            <p className={styles.error}>
+              Please use your @babson.edu email address
+            </p>
+          )}
         </div>
         <h3 className={styles.info}>
           Please transfer $20 to xxxxx and upload a screenshot of the
@@ -79,11 +134,12 @@ const JoinRide = (props) => {
           className={`${styles["input-group"]} ${styles["single-input-group"]}`}
         >
           <label htmlFor="file" className={styles["file-label"]}>
-            Choose a file
+            {file}
           </label>
           <input
             type="file"
             id="file"
+            onChange={fileChangeHandler}
             ref={fileInputRef}
             accept="image/*, .pdf"
             required
@@ -110,7 +166,7 @@ const JoinRide = (props) => {
             </label>
           </div>
         </div>
-        <div>
+        <div className={styles["btn-container"]}>
           <button className={styles.btn}>Submit</button>
         </div>
       </form>
