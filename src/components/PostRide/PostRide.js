@@ -138,7 +138,15 @@ const PostRide = (props) => {
       "https://karpule-web-demo-default-rtdb.firebaseio.com/rides.json",
       {
         method: "POST",
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          ...data,
+          firstName: fNameInputRef.current.value,
+          lastName: lNameInputRef.current.value,
+          num: numberInputRef.current.value,
+          email: emailInputRef.current.value,
+          payment: paymentInputRef.current.value,
+          confirm: confirmInputRef.current.value,
+        }),
       }
     );
 
@@ -279,7 +287,13 @@ const PostRide = (props) => {
       </div>
       <div className={styles["input-group-checkbox"]}>
         <div>
-          <input type="checkbox" id="terms" ref={confirmInputRef} required />
+          <input
+            type="checkbox"
+            id="terms"
+            ref={confirmInputRef}
+            value="yes"
+            required
+          />
           <label htmlFor="terms">
             <a
               href="https://drive.google.com/file/d/1CHZS2bQXG3eSu5ohTxw5y6GaIpyTNzGG/view?usp=sharing"
