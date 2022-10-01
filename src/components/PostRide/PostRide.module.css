@@ -21,7 +21,8 @@ input[type='text'],
 input[type='number'],
 input[type='email'],
 input[type='date'],
-input[type='time'] {
+input[type='time'],
+input[inputmode="numeric"] {
     box-shadow: none;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;

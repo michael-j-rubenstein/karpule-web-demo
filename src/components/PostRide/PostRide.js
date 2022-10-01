@@ -268,7 +268,7 @@ const PostRide = (props) => {
       >
         <label htmlFor="number">Number</label>
         <input
-          type="number"
+          inputmode="numeric"
           id="number"
           ref={numberInputRef}
           pattern="[0-9]*"
