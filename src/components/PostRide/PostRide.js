@@ -229,8 +229,7 @@ const PostRide = (props) => {
         <div>
           <input type="checkbox" id="terms" ref={confirmInputRef} />
           <label htmlFor="terms">
-            Accept{" "}
-            <a href="#" alt="Terms and Conditions">
+            <a href="https://www.google.com/" alt="Terms and Conditions">
               Terms and Conditions
             </a>
           </label>
