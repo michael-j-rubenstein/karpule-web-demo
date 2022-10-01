@@ -61,6 +61,11 @@ input[type='time']::-webkit-date-and-time-value {
     font-size: 0.9rem;
 }
 
+.input-group-checkbox button {
+    background-color: #8063b1;
+    color: white;
+}
+
 .input-group label {
     display: block;
     margin-bottom: 0.4rem;
