@@ -58,7 +58,7 @@ const AvailableRides = (props) => {
         date={data.date}
         destination={data.destination}
         seats={data.seats}
-        price={data.price}
+        price={20}
       ></RideItem>
     );
   });
