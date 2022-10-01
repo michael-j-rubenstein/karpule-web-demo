@@ -22,6 +22,8 @@ const PostRide = (props) => {
     confirm: "",
   });
 
+  console.log(data);
+
   const destInputRef = useRef();
   const seatsInputRef = useRef();
   const dateInputRef = useRef();
@@ -79,7 +81,7 @@ const PostRide = (props) => {
     event.preventDefault();
 
     const enteredFirstName = fNameInputRef.current.value;
-    const enteredLastName = lNameInputRef.current.value;
+    // const enteredLastName = lNameInputRef.current.value;
     const enteredNum = numberInputRef.current.value;
     const enteredEmail = emailInputRef.current.value;
     const enteredDest = destInputRef.current.value;
@@ -227,60 +229,6 @@ const PostRide = (props) => {
         <button className={styles.btn} onClick={prevFormHandler}>
           Back
         </button>
-        <div>
-          <input type="checkbox" id="terms" ref={confirmInputRef} />
-          <label htmlFor="terms">Confirm Ride</label>
-        </div>
-        <button className={styles.btn}>Submit</button>
-      </div>
-    </>
-  );
-
-  const tempStorage = (
-    <>
-      <div className={styles["inputs-group"]}>
-        <div className={styles["input-group"]}>
-          <label htmlFor="name">Name</label>
-          <input type="text" id="name" ref={fNameInputRef} />
-        </div>
-        <div className={styles["input-group"]}>
-          <label htmlFor="number">Number</label>
-          <input type="number" id="number" ref={numberInputRef} />
-        </div>
-      </div>
-      <div
-        className={`${styles["input-group"]} ${styles["single-input-group"]}`}
-      >
-        <label htmlFor="email">School Email</label>
-        <input type="email" id="email" ref={emailInputRef} />
-      </div>
-      <div className={styles["inputs-group"]}>
-        <div className={styles["input-group"]}>
-          <label htmlFor="dest">Destination</label>
-          <input type="text" id="dest" maxLength={50} ref={destInputRef} />
-        </div>
-        <div className={styles["input-group"]}>
-          <label htmlFor="seats">Available Seats</label>
-          <input
-            type="number"
-            id="seats"
-            step={1}
-            min={1}
-            ref={seatsInputRef}
-          />
-        </div>
-      </div>
-      <div className={styles["inputs-group"]}>
-        <div className={styles["input-group"]}>
-          <label htmlFor="date">Departure Date</label>
-          <input type="date" id="date" ref={dateInputRef} />
-        </div>
-        <div className={styles["input-group"]}>
-          <label htmlFor="time">Departure Time</label>
-          <input type="time" id="time" ref={timeInputRef} />
-        </div>
-      </div>
-      <div className={styles["input-group-checkbox"]}>
         <div>
           <input type="checkbox" id="terms" ref={confirmInputRef} />
           <label htmlFor="terms">Confirm Ride</label>
