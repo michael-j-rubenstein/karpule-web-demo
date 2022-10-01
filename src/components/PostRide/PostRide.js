@@ -289,8 +289,14 @@ const PostRide = (props) => {
       <div
         className={`${styles["input-group"]} ${styles["single-input-group"]}`}
       >
-        <label htmlFor="email">Payment</label>
-        <input type="text" id="email" ref={paymentInputRef} required />
+        <label htmlFor="payment">Payment (Account No.)</label>
+        <input
+          type="text"
+          id="payment"
+          ref={paymentInputRef}
+          placeholder="Zelle/Venmo/PayPal Account #"
+          required
+        />
       </div>
       <div className={styles["input-group-checkbox"]}>
         <div>
@@ -305,6 +311,7 @@ const PostRide = (props) => {
             <a
               href="https://drive.google.com/file/d/1CHZS2bQXG3eSu5ohTxw5y6GaIpyTNzGG/view?usp=sharing"
               alt="Terms and Conditions"
+              target="_blank"
             >
               Terms and Conditions
             </a>
