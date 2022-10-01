@@ -5,6 +5,12 @@ import closeIcon from "../../images/close.svg";
 import styles from "./PostRide.module.css";
 import { useRef, useState } from "react";
 
+const isEmpty = (value) => value.trim() === "";
+const isValidEmail = (value) => {
+  const atIndex = value.indexOf("@");
+  return value.includes("babson.edu", atIndex);
+};
+
 const PostRide = (props) => {
   const [data, setData] = useState({
     firstName: "",
@@ -22,7 +28,7 @@ const PostRide = (props) => {
     confirm: "",
   });
 
-  console.log(data);
+  const [emailIsValid, setEmailIsValid] = useState(true);
 
   const destInputRef = useRef();
   const seatsInputRef = useRef();
@@ -53,6 +59,13 @@ const PostRide = (props) => {
           seats: seatsInputRef.current.value,
         };
       });
+      if (
+        destInputRef.current.value.trim() === "" ||
+        dateInputRef.current.value.trim() === "" ||
+        timeInputRef.current.value.trim() === "" ||
+        seatsInputRef.current.value.trim() === ""
+      )
+        return;
     }
 
     if (formPart === 2) {
@@ -64,6 +77,12 @@ const PostRide = (props) => {
           license: licenseInputRef.current.value,
         };
       });
+      if (
+        carTypeInputRef.current.value.trim() === "" ||
+        carColorInputRef.current.value.trim() === "" ||
+        licenseInputRef.current.value.trim() === ""
+      )
+        return;
     }
 
     setFormPart((prevState) => {
@@ -80,43 +99,46 @@ const PostRide = (props) => {
   const submitHandler = async (event) => {
     event.preventDefault();
 
-    const enteredFirstName = fNameInputRef.current.value;
-    // const enteredLastName = lNameInputRef.current.value;
-    const enteredNum = numberInputRef.current.value;
-    const enteredEmail = emailInputRef.current.value;
-    const enteredDest = destInputRef.current.value;
-    const enteredSeats = seatsInputRef.current.value;
-    const enteredDate = dateInputRef.current.value;
-    const enteredTime = timeInputRef.current.value;
-    // const enteredConfirm = confirmInputRef.current.value;
+    if (formPart === 3 && !isValidEmail(emailInputRef.current.value)) {
+      setEmailIsValid(false);
+    } else setEmailIsValid(true);
 
-    console.log(
-      fNameInputRef.current.value,
-      numberInputRef.current.value,
-      emailInputRef.current.value,
-      destInputRef.current.value,
-      seatsInputRef.current.value,
-      dateInputRef.current.value,
-      timeInputRef.current.value,
-      confirmInputRef.current.value
-    );
+    if (formPart === 3) {
+      setData((prevData) => {
+        return {
+          ...prevData,
+          firstName: fNameInputRef.current.value,
+          lastName: lNameInputRef.current.value,
+          num: numberInputRef.current.value,
+          email: emailInputRef.current.value,
+          payment: paymentInputRef.current.value,
+          confirm: confirmInputRef.current.value,
+        };
+      });
+    }
 
-    const userData = {
-      name: enteredFirstName,
-      number: enteredNum,
-      email: enteredEmail,
-      dest: enteredDest,
-      seats: enteredSeats,
-      date: enteredDate,
-      time: enteredTime,
-      riders: {},
-    };
+    const formNotValid =
+      isEmpty(fNameInputRef.current.value) ||
+      isEmpty(lNameInputRef.current.value) ||
+      isEmpty(numberInputRef.current.value) ||
+      !isValidEmail(emailInputRef.current.value) ||
+      isEmpty(data.dest) ||
+      isEmpty(data.seats) ||
+      isEmpty(data.date) ||
+      isEmpty(data.time) ||
+      isEmpty(data.carType) ||
+      isEmpty(data.carColor) ||
+      isEmpty(data.license) ||
+      isEmpty(paymentInputRef.current.value) ||
+      isEmpty(confirmInputRef.current.value);
+
+    if (formNotValid) return;
 
     await fetch(
       "https://karpule-web-demo-default-rtdb.firebaseio.com/rides.json",
       {
         method: "POST",
-        body: JSON.stringify(userData),
+        body: JSON.stringify(data),
       }
     );
 
@@ -129,18 +151,24 @@ const PostRide = (props) => {
         className={`${styles["input-group"]} ${styles["single-input-group"]}`}
       >
         <label htmlFor="dest">Destination</label>
-        <input type="text" id="dest" maxLength={50} ref={destInputRef} />
+        <input
+          type="text"
+          id="dest"
+          maxLength={50}
+          ref={destInputRef}
+          required
+        />
       </div>
       <div
         className={`${styles["input-group"]} ${styles["single-input-group"]}`}
       >
         <label htmlFor="date">Departure Date</label>
-        <input type="date" id="date" ref={dateInputRef} />
+        <input type="date" id="date" ref={dateInputRef} required />
       </div>
       <div className={styles["inputs-group"]}>
         <div className={styles["input-group"]}>
           <label htmlFor="time">Departure Time</label>
-          <input type="time" id="time" ref={timeInputRef} />
+          <input type="time" id="time" ref={timeInputRef} required />
         </div>
         <div className={styles["input-group"]}>
           <label htmlFor="seats">Available Seats</label>
@@ -150,11 +178,12 @@ const PostRide = (props) => {
             step={1}
             min={1}
             ref={seatsInputRef}
+            required
           />
         </div>
       </div>
       <div className={styles["next-btn-container"]}>
-        <button className={styles.btn} onClick={nextFormHandler}>
+        <button className={styles.btn} type="button" onClick={nextFormHandler}>
           Next
         </button>
       </div>
@@ -170,25 +199,43 @@ const PostRide = (props) => {
         className={`${styles["input-group"]} ${styles["single-input-group"]}`}
       >
         <label htmlFor="type">Car Type</label>
-        <input type="text" id="type" maxLength={50} ref={carTypeInputRef} />
+        <input
+          type="text"
+          id="type"
+          maxLength={50}
+          ref={carTypeInputRef}
+          required
+        />
       </div>
       <div
         className={`${styles["input-group"]} ${styles["single-input-group"]}`}
       >
         <label htmlFor="color">Car Color</label>
-        <input type="text" id="color" maxLength={50} ref={carColorInputRef} />
+        <input
+          type="text"
+          id="color"
+          maxLength={50}
+          ref={carColorInputRef}
+          required
+        />
       </div>
       <div
         className={`${styles["input-group"]} ${styles["single-input-group"]}`}
       >
         <label htmlFor="license">License Plate</label>
-        <input type="text" id="license" maxLength={7} ref={licenseInputRef} />
+        <input
+          type="text"
+          id="license"
+          maxLength={7}
+          ref={licenseInputRef}
+          required
+        />
       </div>
       <div className={styles["next-btn-container"]}>
-        <button className={styles.btn} onClick={prevFormHandler}>
+        <button className={styles.btn} type="button" onClick={prevFormHandler}>
           Back
         </button>
-        <button className={styles.btn} onClick={nextFormHandler}>
+        <button className={styles.btn} type="button" onClick={nextFormHandler}>
           Next
         </button>
       </div>
@@ -200,42 +247,54 @@ const PostRide = (props) => {
       <div className={styles["inputs-group"]}>
         <div className={styles["input-group"]}>
           <label htmlFor="firstName">First Name</label>
-          <input type="text" id="firstName" ref={fNameInputRef} />
+          <input type="text" id="firstName" ref={fNameInputRef} required />
         </div>
         <div className={styles["input-group"]}>
           <label htmlFor="lastName">Last Name</label>
-          <input type="text" id="lastName" ref={lNameInputRef} />
+          <input type="text" id="lastName" ref={lNameInputRef} required />
         </div>
       </div>
       <div
         className={`${styles["input-group"]} ${styles["single-input-group"]}`}
       >
         <label htmlFor="number">Number</label>
-        <input type="number" id="number" ref={numberInputRef} />
+        <input type="number" id="number" ref={numberInputRef} required />
       </div>
       <div
         className={`${styles["input-group"]} ${styles["single-input-group"]}`}
       >
         <label htmlFor="email">School Email</label>
-        <input type="email" id="email" ref={emailInputRef} />
+        <input type="email" id="email" ref={emailInputRef} required />
+        {!emailIsValid && (
+          <p className={styles.error}>
+            Please use your @babson.edu email address
+          </p>
+        )}
       </div>
       <div
         className={`${styles["input-group"]} ${styles["single-input-group"]}`}
       >
         <label htmlFor="email">Payment</label>
-        <input type="email" id="email" ref={paymentInputRef} />
+        <input type="text" id="email" ref={paymentInputRef} required />
       </div>
       <div className={styles["input-group-checkbox"]}>
         <div>
-          <input type="checkbox" id="terms" ref={confirmInputRef} />
+          <input type="checkbox" id="terms" ref={confirmInputRef} required />
           <label htmlFor="terms">
-            <a href="https://www.google.com/" alt="Terms and Conditions">
+            <a
+              href="https://drive.google.com/file/d/1CHZS2bQXG3eSu5ohTxw5y6GaIpyTNzGG/view?usp=sharing"
+              alt="Terms and Conditions"
+            >
               Terms and Conditions
             </a>
           </label>
         </div>
         <div>
-          <button className={styles.btn} onClick={prevFormHandler}>
+          <button
+            className={styles.btn}
+            type="button"
+            onClick={prevFormHandler}
+          >
             Back
           </button>
           <button className={styles.btn}>Submit</button>

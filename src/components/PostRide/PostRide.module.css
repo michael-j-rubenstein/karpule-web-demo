@@ -6,6 +6,11 @@
     color: #8063b1;
 }
 
+button:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
 .input-group {
     padding: 0 2rem 1rem;
     max-width: 200px;
@@ -64,6 +69,11 @@ input[type='time']::-webkit-date-and-time-value {
 .input-group-checkbox button {
     background-color: #8063b1;
     color: white;
+}
+
+.input-group-checkbox button:first-of-type {
+    padding: 0.5rem 26px;
+    margin-left: 0;
 }
 
 .input-group label {
@@ -138,6 +148,22 @@ input[type='time']::-webkit-date-and-time-value {
     color:#2f2f2f;
 }
 
+.error {
+    margin: 1rem;
+    font-size: 0.5rem;
+    color: red;
+    text-align: center;
+}
+
+.error:before {
+    content: '!';
+    margin-right: 5px;
+    border: 1px solid red;
+    font-size: 0.5rem;
+    padding: 1px 4.5px;
+    border-radius: 50%;
+}
+
 @media screen and (min-width: 340px) {
     .input-group-checkbox {
         justify-content: center;
@@ -200,6 +226,24 @@ input[type='time']::-webkit-date-and-time-value {
     .next-btn-container {
         max-width: 630px;
         margin: 0 3rem 3rem;
+    }
+
+    .error {
+        margin: 1rem;
+        font-size: 0.7rem;
+        color: red;
+        text-align: left;
+    }
+    
+    .error:before {
+        content: '!';
+        position: relative;
+        top: -1px;
+        margin-right: 5px;
+        border: 1px solid red;
+        font-size: 0.5rem;
+        padding: 1px 4.5px;
+        border-radius: 50%;
     }
 }
 
