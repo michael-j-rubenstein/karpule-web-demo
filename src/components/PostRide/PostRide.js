@@ -226,14 +226,18 @@ const PostRide = (props) => {
         <input type="email" id="email" ref={paymentInputRef} />
       </div>
       <div className={styles["input-group-checkbox"]}>
-        <button className={styles.btn} onClick={prevFormHandler}>
-          Back
-        </button>
         <div>
           <input type="checkbox" id="terms" ref={confirmInputRef} />
-          <label htmlFor="terms">Confirm Ride</label>
+          <label htmlFor="terms">
+            Accept <a href="#">Terms and Conditions</a>
+          </label>
         </div>
-        <button className={styles.btn}>Submit</button>
+        <div>
+          <button className={styles.btn} onClick={prevFormHandler}>
+            Back
+          </button>
+          <button className={styles.btn}>Submit</button>
+        </div>
       </div>
     </>
   );

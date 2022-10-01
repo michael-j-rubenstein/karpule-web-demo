@@ -14,7 +14,9 @@
 
 input[type='text'],
 input[type='number'],
-input[type='email'] {
+input[type='email'],
+input[type='date'],
+input[type='time'] {
     box-shadow: none;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
@@ -36,17 +38,21 @@ input[type='time']::-webkit-date-and-time-value {
 
 .input-group-checkbox {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin: 0.5rem 2rem;
-    gap: 0.5rem;
+    margin: 0.5rem;
+    gap: 1rem;
     margin-bottom: 1rem;
 }
 
+.input-group-checkbox label {
+    padding-left: 0.3rem;
+}
+
 .input-group-checkbox input {
-    /* background-color: transparent;
-    width: 5px;
-    height: 5px; */
+    position: relative;
+    top: 1px;
 }
 
 .input-group label {
@@ -120,15 +126,6 @@ input[type='time']::-webkit-date-and-time-value {
         justify-content: center;
     }
 
-    .input-group-checkbox input {
-        position: relative;
-        top: 1px;
-    }
-
-    .input-group-checkbox label {
-        padding-left: 0.3rem;
-    }
-
     .title {
         margin-bottom: 1rem;
     }
@@ -180,7 +177,7 @@ input[type='time']::-webkit-date-and-time-value {
 
     .input-group-checkbox {
         margin: 1rem 2rem 3rem;
-        gap: 5rem;
+        gap: 2rem;
     }
 
     .next-btn-container {
