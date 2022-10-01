@@ -2,6 +2,7 @@
 .title {
     text-align: center;
     margin-top: 1rem;
+    margin-bottom: 0.7rem;
     color: #8063b1;
 }
 
@@ -12,13 +13,13 @@
 }
 
 input {
-    box-shadow: none;
+    /* box-shadow: none;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-sizing:border-box;
     -moz-box-sizing:border-box;
     -webkit-box-sizing:border-box;
-    -webkit-appearance: none;
+    -webkit-appearance: none; */
 }
 
 input[type='date'],
@@ -38,6 +39,12 @@ input[type='time']::-webkit-date-and-time-value {
     margin: 0.5rem 2rem;
     gap: 0.5rem;
     margin-bottom: 1rem;
+}
+
+.input-group-checkbox input {
+    /* background-color: transparent;
+    width: 5px;
+    height: 5px; */
 }
 
 .input-group label {
@@ -91,6 +98,21 @@ input[type='time']::-webkit-date-and-time-value {
     opacity: 0.7;
 }
 
+.next-btn-container {
+    display: flex;
+    justify-content: flex-end;
+    max-width: 200px;
+    margin: 0 auto 1rem;
+}
+
+.info {
+    text-align: left;
+    margin: 0 2.5rem 1rem;
+    max-width: 200px;
+    font-size: 0.9rem;
+    color:#2f2f2f;
+}
+
 @media screen and (min-width: 340px) {
     .input-group-checkbox {
         justify-content: center;
@@ -104,12 +126,24 @@ input[type='time']::-webkit-date-and-time-value {
     .input-group-checkbox label {
         padding-left: 0.3rem;
     }
+
+    .title {
+        margin-bottom: 1rem;
+    }
+
+    .info {
+        margin: 0 auto 1.5rem;
+    }
 }
 
 @media screen and (min-width: 500px) {
 
     .title {
         margin-top: 3rem;
+    }
+
+    .info {
+        max-width: 320px;
     }
 
     .inputs-group {
@@ -132,19 +166,24 @@ input[type='time']::-webkit-date-and-time-value {
         width: 90%;
     }
 
-    .email-input-group {
+    .single-input-group {
         max-width: 700px;
         margin: 0 1rem;
         width: 100%;
     }
 
-    .email-input-group input {
+    .single-input-group input {
         width: 90%;
     }
 
     .input-group-checkbox {
         margin: 1rem 2rem 3rem;
         gap: 5rem;
+    }
+
+    .next-btn-container {
+        max-width: 630px;
+        margin: 0 3rem 3rem;
     }
 }
 
@@ -153,13 +192,18 @@ input[type='time']::-webkit-date-and-time-value {
         margin: 0 auto;
     }
 
-    .email-input-group {
+    .single-input-group {
         max-width: 700px;
         margin: 0 auto;
         width: 100%;
     }
 
-    .email-input-group input {
+    .single-input-group input {
         width: 95%;
+    }
+
+    .next-btn-container {
+        margin: 1rem auto 3rem;
+        padding: 0 3rem;
     }
 }
