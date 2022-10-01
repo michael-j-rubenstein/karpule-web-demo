@@ -1,0 +1,287 @@
+
+.title {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 0.7rem;
+    color: #8063b1;
+}
+
+button:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.input-group {
+    padding: 0 2rem 1rem;
+    max-width: 200px;
+    margin: 0 auto;
+}
+
+
+.input-group-checkbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0.5rem;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.input-group-checkbox label {
+    padding-left: 0.3rem;
+}
+
+.input-group-checkbox input {
+    position: relative;
+    top: 2px;
+    width: 13px;
+    height: 13px;
+}
+
+.input-group-checkbox a {
+    font-size: 0.9rem;
+}
+
+.input-group-checkbox button {
+    background-color: #8063b1;
+    color: white;
+}
+
+.input-group-checkbox button:first-of-type {
+    padding: 0.5rem 26px;
+    margin-left: 0;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.4rem;
+    color: #2f2f2f;
+    font-size: 0.9rem;
+}
+
+.input-group input {
+    display: block;
+    border: 0;
+    box-shadow: 0 0 5px 2px rgba(204, 204, 204, 0.4);
+    border-radius: 30px;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    font-size: 0.8rem;
+    margin: 1px 0;
+    color: #2f2f2f;
+}
+
+.file-label {
+    display: block;
+    border: 0;
+    box-shadow: 0 0 5px 2px rgba(204, 204, 204, 0.4);
+    border-radius: 30px;
+    padding: 0.5rem 1rem;
+    width: 82%;
+    font-size: 0.8rem;
+    margin: 1px 0;
+    color: #2f2f2f;
+    text-align: center;
+}
+
+.file-label:hover {
+    cursor: pointer;
+    box-shadow: 0 0 5px 2px #8063b160;
+}
+
+.file-label:focus {
+    box-shadow: 0 0 5px 2px #8063b160;
+}
+
+.input-group input:focus {
+    outline-style: none;
+    box-shadow: none;
+    border: 1px solid #8063B1;
+    margin: 0;
+}
+
+.btn {
+    margin-left: 1rem;
+    padding: 0.5rem 1.3rem;
+    background-color: transparent;
+    border: 0;
+    border-radius: 12px;
+    box-shadow: 0 0 5px 2px rgba(204, 204, 204, 0.4);
+}
+
+.close-icon {
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-top: 0.1rem;
+    background-color: transparent;
+    border: 0;
+}
+
+.close-icon:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.next-btn-container {
+    display: flex;
+    justify-content: flex-end;
+    max-width: 200px;
+    margin: 0 auto 1rem;
+    gap: 3rem;
+}
+
+.next-btn-container button {
+    background-color: #8063b1;
+    color: white;
+}
+
+.info {
+    text-align: left;
+    margin: 0 2.5rem 1rem;
+    max-width: 200px;
+    font-size: 0.9rem;
+    color:#2f2f2f;
+}
+
+.error {
+    margin: 1rem;
+    font-size: 0.5rem;
+    color: red;
+    text-align: center;
+}
+
+.error:before {
+    content: '!';
+    margin-right: 5px;
+    border: 1px solid red;
+    font-size: 0.5rem;
+    padding: 1px 4.5px;
+    border-radius: 50%;
+}
+
+input[type="file"] {
+    visibility: hidden;
+    color: transparent;
+}
+
+
+@media screen and (min-width: 340px) {
+    .input-group-checkbox {
+        justify-content: center;
+    }
+
+    .title {
+        margin-bottom: 1rem;
+    }
+
+    .info {
+        margin: 0 auto 1.5rem;
+    }
+}
+
+@media screen and (min-width: 500px) {
+
+    .title {
+        margin-top: 3rem;
+    }
+
+    .info {
+        max-width: 320px;
+    }
+
+    .inputs-group {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 700px;
+        margin: 0 1rem;
+        gap: 1rem;
+    }
+
+    .input-group {
+        max-width: none;
+        margin: 0;
+        padding: 0 0 1rem;
+        flex-basis: 50%;
+    }
+
+    .input-group input {
+        width: 90%;
+    }
+
+    .file-label {
+        width: 83%;
+    }
+
+    .single-input-group {
+        max-width: 700px;
+        margin: 0 1rem;
+        width: 100%;
+    }
+
+    .single-input-group input {
+        width: 90%;
+    }
+
+    .input-group-checkbox {
+        margin: 1rem 2rem 3rem;
+        gap: 2rem;
+    }
+
+    .next-btn-container {
+        max-width: 630px;
+        margin: 0 3rem 3rem;
+    }
+
+    .error {
+        margin: 1rem;
+        font-size: 0.7rem;
+        color: red;
+        text-align: left;
+    }
+    
+    .error:before {
+        content: '!';
+        position: relative;
+        top: -1px;
+        margin-right: 5px;
+        border: 1px solid red;
+        font-size: 0.5rem;
+        padding: 1px 4.5px;
+        border-radius: 50%;
+    }
+}
+
+@media screen and (min-width: 780px) {
+    .inputs-group {
+        margin: 0 auto;
+    }
+
+    .input-group input {
+        width: 100%;
+    }
+
+    .file-label {
+        width: 95%;
+    }
+
+    .single-input-group {
+        max-width: 700px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .single-input-group input {
+        width: 100%;
+    }
+
+    .next-btn-container {
+        margin: 1rem auto 3rem;
+        padding: 0 3rem;
+        gap: 1rem
+    }
+}

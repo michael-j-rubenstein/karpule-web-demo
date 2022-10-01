@@ -181,7 +181,7 @@ const PostRide = (props) => {
         <div className={styles["input-group"]}>
           <label htmlFor="seats">Available Seats</label>
           <input
-            inputmode="numeric"
+            inputMode="numeric"
             id="seats"
             step={1}
             min={1}
@@ -268,7 +268,7 @@ const PostRide = (props) => {
       >
         <label htmlFor="number">Number</label>
         <input
-          inputmode="numeric"
+          inputMode="numeric"
           id="number"
           ref={numberInputRef}
           pattern="[0-9]*"

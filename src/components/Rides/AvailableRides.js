@@ -27,6 +27,11 @@ const AvailableRides = (props) => {
       for (let key in responseData) {
         const dateData = await responseData[key].date.split("-");
         const timeData = await responseData[key].time.split(":");
+
+        let riders = false;
+
+        if (Object.keys(responseData[key]).includes("riders")) riders = true;
+
         loadedRides.push({
           key: key,
           date: new Date(
@@ -38,7 +43,8 @@ const AvailableRides = (props) => {
           ),
           destination: responseData[key].dest,
           seats: responseData[key].seats,
-          orice: responseData[key].price,
+          price: responseData[key].price,
+          riders: riders ? responseData[key].riders : {},
         });
         setRides(loadedRides);
       }
@@ -49,19 +55,24 @@ const AvailableRides = (props) => {
     });
   }, []);
 
-  const rideData = rides.map((data) => {
-    return (
-      <RideItem
-        className={styles["rides-item"]}
-        id={data.key}
-        key={data.key}
-        date={data.date}
-        destination={data.destination}
-        seats={data.seats}
-        price={20}
-      ></RideItem>
-    );
-  });
+  const rideData = rides
+    .sort((a, b) => (a.date > b.date ? 1 : -1))
+    .filter((obj) => obj.date > new Date())
+    .map((data) => {
+      return (
+        <RideItem
+          className={styles["rides-item"]}
+          id={data.key}
+          key={data.key}
+          date={data.date}
+          destination={data.destination}
+          seats={data.seats}
+          price={20}
+          riders={data.riders}
+          joinRide={props.joinRide}
+        ></RideItem>
+      );
+    });
 
   return (
     <div className={styles["wrapper"]}>

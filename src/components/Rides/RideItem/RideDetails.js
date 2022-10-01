@@ -1,7 +1,9 @@
 import styles from "./RideDetails.module.css";
 
 const RideDetails = (props) => {
-  const joinRideHandler = () => {};
+  const joinRideHandler = () => {
+    props.joinRide(props.id, props.riders);
+  };
 
   return (
     <div className={styles["ride-details"]}>
