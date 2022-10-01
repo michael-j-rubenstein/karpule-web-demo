@@ -181,7 +181,7 @@ const PostRide = (props) => {
         <div className={styles["input-group"]}>
           <label htmlFor="seats">Available Seats</label>
           <input
-            type="number"
+            inputmode="numeric"
             id="seats"
             step={1}
             min={1}
