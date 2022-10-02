@@ -7,7 +7,7 @@ const Backdrop = (props) => {
 
 const ModalOverlay = (props) => {
   return (
-    <div className={styles.modal}>
+    <div className={`${styles.modal} ${props.className}`}>
       <div className={styles.content}>{props.children}</div>
     </div>
   );
@@ -17,7 +17,7 @@ const Modal = (props) => {
   return (
     <>
       <Backdrop onClose={props.onClose}></Backdrop>
-      <ModalOverlay>{props.children}</ModalOverlay>
+      <ModalOverlay className={props.className}>{props.children}</ModalOverlay>
     </>
   );
 };

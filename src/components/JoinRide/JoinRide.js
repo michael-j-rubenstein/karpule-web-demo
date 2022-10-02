@@ -69,7 +69,7 @@ const JoinRide = (props) => {
   };
 
   return (
-    <Modal onClose={props.onClose}>
+    <Modal onClose={props.onClose} className={styles.modal}>
       <img
         srcSet={closeIcon}
         onClick={props.onClose}

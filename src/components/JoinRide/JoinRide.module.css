@@ -1,4 +1,8 @@
 
+.modal {
+    top: 15vh;
+}
+
 .title {
     text-align: center;
     margin-top: 1rem;
@@ -171,11 +175,15 @@ input[type="file"] {
     }
 
     .info {
-        margin: 0 auto 1.5rem;
+        margin: 1rem auto 1.5rem;
     }
 }
 
 @media screen and (min-width: 500px) {
+
+    .modal {
+        top: 20vh;
+    }
 
     .title {
         margin-top: 3rem;
@@ -184,7 +192,7 @@ input[type="file"] {
     .info {
         max-width: 1000px;
         text-align: left;
-        margin: 0 1rem 1rem;
+        margin: 2rem 1rem 1rem;
     }
 
     .inputs-group {
@@ -250,7 +258,7 @@ input[type="file"] {
     .info {
         max-width: 700px;
         text-align: left;
-        margin: 0 auto 1rem;
+        margin: 2rem auto 1rem;
     }
 
     .inputs-group {
