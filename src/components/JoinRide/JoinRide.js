@@ -8,6 +8,7 @@ import closeIcon from "../../images/close.svg";
 
 import { firestore } from "../../firebase";
 import { doc, updateDoc } from "@firebase/firestore";
+import { getStorage, ref, uploadBytes } from "firebase/storage";
 
 const isEmpty = (value) => value.trim() === "";
 const isValidEmail = (value) => {
@@ -16,7 +17,8 @@ const isValidEmail = (value) => {
 };
 
 const JoinRide = (props) => {
-  const [file, setFile] = useState("Choose a file");
+  const [filePath, setFilePath] = useState("Choose a file");
+  const [file, setFile] = useState();
   const [emailIsValid, setEmailIsValid] = useState(true);
 
   const fNameInputRef = useRef();
@@ -27,9 +29,12 @@ const JoinRide = (props) => {
   const confirmInputRef = useRef();
 
   const fileChangeHandler = (event) => {
-    const path = event.target.value.split("\\");
-    const lastIndex = path.length - 1;
-    setFile("File Uploaded: " + path[lastIndex]);
+    if (event.target.files[0]) {
+      const path = event.target.value.split("\\");
+      const lastIndex = path.length - 1;
+      setFilePath("File Uploaded: " + path[lastIndex]);
+      setFile(event.target.files[0]);
+    }
   };
 
   const formSubmitHandler = async (event) => {
@@ -69,8 +74,14 @@ const JoinRide = (props) => {
     // );
 
     const riderNum = Object.keys(props.riders).length;
-    console.log(riderNum);
     const riderKey = `rider-${riderNum + 1}`;
+
+    const storage = getStorage();
+    const storageRef = ref(storage, `${props.rideId}-${riderKey}`);
+
+    uploadBytes(storageRef, file).then((snapshot) => {
+      console.log("uploaded blob or file!");
+    });
 
     const rideRef = doc(firestore, "rides/" + props.rideId);
     let newData = {
@@ -145,7 +156,7 @@ const JoinRide = (props) => {
           className={`${styles["input-group"]} ${styles["single-input-group"]}`}
         >
           <label htmlFor="file" className={styles["file-label"]}>
-            {file}
+            {filePath}
           </label>
           <input
             type="file"
