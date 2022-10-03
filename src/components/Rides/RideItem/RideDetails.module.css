@@ -51,6 +51,7 @@ p {
 
 .btn {
     background: #8063B1;
+    font-weight: bold;
     color: white;
     border: none;
     padding: 0.5rem 1rem;
@@ -68,6 +69,12 @@ p {
     background: grey;
 }
 
+@media screen and (min-width: 350px) {
+    .btn {
+        padding:  0.7rem 1.5rem;
+    }
+}
+
 @media screen and (min-width: 550px) {
     .ride-details {
         max-width: 100%;
@@ -77,6 +84,16 @@ p {
     h3 {
         max-width: 13rem;
     }
+
+    .details-price {
+        gap: 1rem;
+    }
+
+    .btn {
+        padding: 0.6rem 1.05rem;
+        font-size: 1rem;
+    }
+    
     
 }
 

@@ -8,8 +8,8 @@ const RidesSummary = () => {
       <h2>2022 Fall Break Airport Program</h2>
       <p>Karpule is back!</p>
       <p>
-        As a Driver, you can earn $20 per empty seat - and you can take multiple
-        people at a time! Click “Post a ride” to get started!
+        As a Driver, you can utilize your empty seats to earn some money on your
+        way while enjoying the trip with amazing people!
       </p>
       <p>
         As a Rider, you can save money, ride safely, and meet new people. Click
