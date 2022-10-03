@@ -7,9 +7,12 @@ import JoinRide from "./components/JoinRide/JoinRide";
 const App = () => {
   const [showRideForm, setShowRideForm] = useState(false);
   const [showJoinForm, setShowJoinForm] = useState(false);
+  const [numRides, setNumRides] = useState(0);
   const [rideId, setRideId] = useState("");
   const [riders, setRiders] = useState({});
   const [onChange, setOnChange] = useState(false);
+
+  console.log(numRides);
 
   const showRideFormHandler = () => {
     setShowRideForm(true);
@@ -35,10 +38,15 @@ const App = () => {
     });
   };
 
+  const findRidesHandler = (rides) => {
+    setNumRides(rides);
+  };
+
   return (
     <>
       {showRideForm && (
         <PostRide
+          numRides={numRides}
           onClose={hideRideFormHandler}
           onChange={onChangeHandler}
         ></PostRide>
@@ -55,6 +63,7 @@ const App = () => {
       <Rides
         postRide={showRideFormHandler}
         joinRide={showJoinFormHandler}
+        findRides={findRidesHandler}
         onChange={onChange}
       ></Rides>
     </>

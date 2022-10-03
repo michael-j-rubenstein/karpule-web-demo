@@ -5,6 +5,9 @@ import closeIcon from "../../images/close.svg";
 import styles from "./PostRide.module.css";
 import { useRef, useState } from "react";
 
+import { firestore } from "../../firebase";
+import { doc, setDoc, addDoc, collection } from "@firebase/firestore";
+
 const isEmpty = (value) => value.trim() === "";
 const isValidEmail = (value) => {
   const atIndex = value.indexOf("@");
@@ -134,21 +137,44 @@ const PostRide = (props) => {
 
     if (formNotValid) return;
 
-    await fetch(
-      "https://karpule-pilot-test-2-default-rtdb.firebaseio.com/rides.json",
-      {
-        method: "POST",
-        body: JSON.stringify({
-          ...data,
-          firstName: fNameInputRef.current.value,
-          lastName: lNameInputRef.current.value,
-          num: numberInputRef.current.value,
-          email: emailInputRef.current.value,
-          payment: paymentInputRef.current.value,
-          confirm: confirmInputRef.current.value,
-        }),
-      }
-    );
+    // await fetch(
+    //   "https://karpule-pilot-test-2-default-rtdb.firebaseio.com/rides.json",
+    //   {
+    //     method: "POST",
+    //     body: JSON.stringify({
+    //       ...data,
+    //       firstName: fNameInputRef.current.value,
+    //       lastName: lNameInputRef.current.value,
+    //       num: numberInputRef.current.value,
+    //       email: emailInputRef.current.value,
+    //       payment: paymentInputRef.current.value,
+    //       confirm: confirmInputRef.current.value,
+    //     }),
+    //   }
+    // );
+
+    // const ref = collection(firestore, "rides");
+    let newData = {
+      ...data,
+      firstName: fNameInputRef.current.value,
+      lastName: lNameInputRef.current.value,
+      num: numberInputRef.current.value,
+      email: emailInputRef.current.value,
+      payment: paymentInputRef.current.value,
+      confirm: confirmInputRef.current.value,
+    };
+
+    // try {
+    //   addDoc(ref, newData);
+    // } catch (e) {
+    //   console.log(e);
+    // }
+
+    const rideID = `ride-${props.numRides + 1}`;
+
+    const ref = doc(firestore, "rides", rideID);
+    await setDoc(ref, newData);
+
     props.onChange();
     props.onClose();
   };

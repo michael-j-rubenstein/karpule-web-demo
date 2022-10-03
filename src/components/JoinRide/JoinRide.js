@@ -6,6 +6,9 @@ import styles from "./JoinRide.module.css";
 
 import closeIcon from "../../images/close.svg";
 
+import { firestore } from "../../firebase";
+import { doc, updateDoc } from "@firebase/firestore";
+
 const isEmpty = (value) => value.trim() === "";
 const isValidEmail = (value) => {
   const atIndex = value.indexOf("@");
@@ -46,24 +49,45 @@ const JoinRide = (props) => {
 
     if (formNotValid) return;
 
-    console.log(props.riders);
+    console.log(props.rideId);
 
-    await fetch(
-      "https://karpule-pilot-test-2-default-rtdb.firebaseio.com/rides/" +
-        props.rideId +
-        "/riders.json",
-      {
-        method: "POST",
-        body: JSON.stringify({
-          firstName: fNameInputRef.current.value,
-          lastName: lNameInputRef.current.value,
-          num: numberInputRef.current.value,
-          email: emailInputRef.current.value,
-          paymentFile: fileInputRef.current.value,
-          confirm: confirmInputRef.current.value,
-        }),
-      }
-    );
+    // await fetch(
+    //   "https://karpule-pilot-test-2-default-rtdb.firebaseio.com/rides/" +
+    //     props.rideId +
+    //     "/riders.json",
+    //   {
+    //     method: "POST",
+    //     body: JSON.stringify({
+    //       firstName: fNameInputRef.current.value,
+    //       lastName: lNameInputRef.current.value,
+    //       num: numberInputRef.current.value,
+    //       email: emailInputRef.current.value,
+    //       paymentFile: fileInputRef.current.value,
+    //       confirm: confirmInputRef.current.value,
+    //     }),
+    //   }
+    // );
+
+    const riderNum = Object.keys(props.riders).length;
+    console.log(riderNum);
+    const riderKey = `rider-${riderNum + 1}`;
+
+    const rideRef = doc(firestore, "rides/" + props.rideId);
+    let newData = {
+      firstName: fNameInputRef.current.value,
+      lastName: lNameInputRef.current.value,
+      num: numberInputRef.current.value,
+      email: emailInputRef.current.value,
+      paymentFile: fileInputRef.current.value,
+      confirm: confirmInputRef.current.value,
+    };
+
+    try {
+      updateDoc(rideRef, { riders: { ...props.riders, [riderKey]: newData } });
+    } catch (e) {
+      console.log(e);
+    }
+
     props.onChange();
     props.onClose();
   };
