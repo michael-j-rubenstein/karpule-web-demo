@@ -135,7 +135,7 @@ const PostRide = (props) => {
     if (formNotValid) return;
 
     await fetch(
-      "https://karpule-web-demo-default-rtdb.firebaseio.com/rides.json",
+      "https://karpule-pilot-test-2-default-rtdb.firebaseio.com/rides.json",
       {
         method: "POST",
         body: JSON.stringify({

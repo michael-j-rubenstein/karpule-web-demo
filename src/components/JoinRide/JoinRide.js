@@ -49,7 +49,7 @@ const JoinRide = (props) => {
     console.log(props.riders);
 
     await fetch(
-      "https://karpule-web-demo-default-rtdb.firebaseio.com/rides/" +
+      "https://karpule-pilot-test-2-default-rtdb.firebaseio.com/rides/" +
         props.rideId +
         "/riders.json",
       {

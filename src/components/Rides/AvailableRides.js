@@ -13,7 +13,7 @@ const AvailableRides = (props) => {
   useEffect(() => {
     const fetchRides = async () => {
       const response = await fetch(
-        "https://karpule-web-demo-default-rtdb.firebaseio.com/rides.json"
+        "https://karpule-pilot-test-2-default-rtdb.firebaseio.com/rides.json"
       );
 
       if (!response.ok) {
