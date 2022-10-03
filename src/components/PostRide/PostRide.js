@@ -294,7 +294,7 @@ const PostRide = (props) => {
           type="text"
           id="payment"
           ref={paymentInputRef}
-          placeholder="Zelle/Venmo/PayPal Account #"
+          placeholder="Venmo Account #"
           required
         />
       </div>

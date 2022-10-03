@@ -113,8 +113,9 @@ const JoinRide = (props) => {
           )}
         </div>
         <h3 className={styles.info}>
-          Please transfer $20 to xxxxx and upload a screenshot of the
-          transaction below:
+          Please transfer $20 to{" "}
+          <span className={styles.highlighted}>@karpulego</span> on Venmo and
+          upload a screenshot of the transaction below:
         </h3>
         <div
           className={`${styles["input-group"]} ${styles["single-input-group"]}`}

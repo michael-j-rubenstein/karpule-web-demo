@@ -10,6 +10,10 @@
     color: #8063b1;
 }
 
+.highlighted {
+    color: #8063b1;
+}
+
 button:hover {
     cursor: pointer;
     transform: scale(1.05);
