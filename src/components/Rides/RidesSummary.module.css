@@ -14,3 +14,13 @@
     font-size: 2rem;
     margin-top: 0;
 }
+
+.summary p:first-of-type {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.7rem;
+}
+
+.summary p {
+    margin-bottom: 0.5rem;
+}

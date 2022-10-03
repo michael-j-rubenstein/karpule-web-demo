@@ -5,17 +5,15 @@ import styles from "./RidesSummary.module.css";
 const RidesSummary = () => {
   return (
     <Card className={styles.summary}>
-      <h2>Fall Break</h2>
+      <h2>2022 Fall Break Airport Program</h2>
+      <p>Karpule is back!</p>
       <p>
-        This is some dummy text just for styling purposes, please dont care
-        about this text, idk what else to write, i just need filler words
-        badaboom badabeem, hey, i just met you, and this is crazy, heres my
-        number, so karpule baby
+        As a Driver, you can earn $20 per empty seat - and you can take multiple
+        people at a time! Click “Post a ride” to get started!
       </p>
       <p>
-        This is some dummy text just for styling purposes, please dont care
-        about this text, idk what else to write, i just need filler words
-        badaboom badabeem.
+        As a Rider, you can save money, ride safely, and meet new people. Click
+        "Join" to get started!
       </p>
     </Card>
   );
