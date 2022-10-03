@@ -6,7 +6,7 @@ import styles from "./PostRide.module.css";
 import { useRef, useState } from "react";
 
 import { firestore } from "../../firebase";
-import { doc, setDoc, addDoc, collection } from "@firebase/firestore";
+import { doc, setDoc } from "@firebase/firestore";
 
 const isEmpty = (value) => value.trim() === "";
 const isValidEmail = (value) => {
