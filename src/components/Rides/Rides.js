@@ -8,6 +8,7 @@ const Rides = (props) => {
       <AvailableRides
         postRide={props.postRide}
         joinRide={props.joinRide}
+        onChange={props.onChange}
       ></AvailableRides>
     </>
   );

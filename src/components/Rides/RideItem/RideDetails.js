@@ -5,6 +5,21 @@ const RideDetails = (props) => {
     props.joinRide(props.id, props.riders);
   };
 
+  const button =
+    props.seats !== 0 ? (
+      <button className={styles["btn"]} onClick={joinRideHandler}>
+        Join Ride
+      </button>
+    ) : (
+      <button
+        className={`${styles["btn"]} ${styles["btn-disabled"]}`}
+        onClick={joinRideHandler}
+        disabled
+      >
+        Ride Full
+      </button>
+    );
+
   return (
     <div className={styles["ride-details"]}>
       <div className={styles["ride-info"]}>
@@ -13,9 +28,7 @@ const RideDetails = (props) => {
       </div>
       <div className={styles["details-price"]}>
         <div className={styles.price}>{props.price}</div>
-        <button className={styles["btn"]} onClick={joinRideHandler}>
-          Join Ride
-        </button>
+        {button}
       </div>
     </div>
   );

@@ -15,25 +15,19 @@ const RideItem = (props) => {
     }
   }, [props.seats, props.riders]);
 
-  const rideItem =
-    seats !== 0 ? (
-      <li
-        key={props.id}
-        className={`${styles["ride-item"]} ${props.className}`}
-      >
-        <RideDate date={props.date}></RideDate>
-        <RideDetails
-          id={props.id}
-          seats={seats}
-          destination={props.destination}
-          price={props.price}
-          joinRide={props.joinRide}
-          riders={props.riders}
-        ></RideDetails>
-      </li>
-    ) : (
-      <></>
-    );
+  const rideItem = (
+    <li key={props.id} className={`${styles["ride-item"]} ${props.className}`}>
+      <RideDate date={props.date}></RideDate>
+      <RideDetails
+        id={props.id}
+        seats={seats}
+        destination={props.destination}
+        price={props.price}
+        joinRide={props.joinRide}
+        riders={props.riders}
+      ></RideDetails>
+    </li>
+  );
 
   return rideItem;
 };

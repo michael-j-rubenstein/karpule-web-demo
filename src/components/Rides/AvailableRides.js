@@ -10,6 +10,8 @@ import plus from "../../images/plus-sign.svg";
 const AvailableRides = (props) => {
   const [rides, setRides] = useState([]);
 
+  const onChange = props.onChange;
+
   useEffect(() => {
     const fetchRides = async () => {
       const response = await fetch(
@@ -53,7 +55,7 @@ const AvailableRides = (props) => {
     fetchRides().catch((error) => {
       console.log(error.message);
     });
-  }, []);
+  }, [onChange]);
 
   const rideData = rides
     .sort((a, b) => (a.date > b.date ? 1 : -1))

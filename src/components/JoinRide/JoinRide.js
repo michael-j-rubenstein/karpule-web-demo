@@ -64,7 +64,7 @@ const JoinRide = (props) => {
         }),
       }
     );
-
+    props.onChange();
     props.onClose();
   };
 

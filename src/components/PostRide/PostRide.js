@@ -149,7 +149,7 @@ const PostRide = (props) => {
         }),
       }
     );
-
+    props.onChange();
     props.onClose();
   };
 

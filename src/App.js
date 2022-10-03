@@ -9,6 +9,7 @@ const App = () => {
   const [showJoinForm, setShowJoinForm] = useState(false);
   const [rideId, setRideId] = useState("");
   const [riders, setRiders] = useState({});
+  const [onChange, setOnChange] = useState(false);
 
   const showRideFormHandler = () => {
     setShowRideForm(true);
@@ -28,20 +29,33 @@ const App = () => {
     setShowJoinForm(false);
   };
 
+  const onChangeHandler = () => {
+    setOnChange((prevState) => {
+      return !prevState;
+    });
+  };
+
   return (
     <>
-      {showRideForm && <PostRide onClose={hideRideFormHandler}></PostRide>}
+      {showRideForm && (
+        <PostRide
+          onClose={hideRideFormHandler}
+          onChange={onChangeHandler}
+        ></PostRide>
+      )}
       {showJoinForm && (
         <JoinRide
           rideId={rideId}
           riders={riders}
           onClose={hideJoinFormHandler}
+          onChange={onChangeHandler}
         ></JoinRide>
       )}
       <Header></Header>
       <Rides
         postRide={showRideFormHandler}
         joinRide={showJoinFormHandler}
+        onChange={onChange}
       ></Rides>
     </>
   );
