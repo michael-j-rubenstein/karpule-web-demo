@@ -45,7 +45,7 @@ p {
 }
 
 .price::after {
-    content: "/seat";
+    content: " /seat";
     font-size: 0.9rem;
 }
 
