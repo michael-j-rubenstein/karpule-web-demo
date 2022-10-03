@@ -24,7 +24,7 @@ const RideDetails = (props) => {
     <div className={styles["ride-details"]}>
       <div className={styles["ride-info"]}>
         <h3>{props.destination}</h3>
-        <p className={styles.seats}>Avalilable Seats: {props.seats}</p>
+        <p className={styles.seats}>Available Seats: {props.seats}</p>
       </div>
       <div className={styles["details-price"]}>
         <div className={styles.price}>{props.price}</div>
