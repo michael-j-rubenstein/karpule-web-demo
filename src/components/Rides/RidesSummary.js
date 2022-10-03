@@ -5,7 +5,7 @@ import styles from "./RidesSummary.module.css";
 const RidesSummary = () => {
   return (
     <Card className={styles.summary}>
-      <h2>2022 Fall Break Airport Program</h2>
+      <h2>2022 Fall Break Special</h2>
       <p>Karpule is back!</p>
       <p>
         As a Driver, you can utilize your empty seats to earn some money on your
