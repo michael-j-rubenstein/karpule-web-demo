@@ -325,6 +325,11 @@ const PostRide = (props) => {
         />
       </div>
       <div className={styles["input-group-checkbox"]}>
+        <p className={styles["driver-notice"]}>
+          Please Note: Karpule will take 20% commission fee from each
+          transaction. The payment will be transferred to your account within 24
+          hours after the ride is complete.
+        </p>
         <div>
           <input
             type="checkbox"

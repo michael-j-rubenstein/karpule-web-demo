@@ -168,6 +168,17 @@ const JoinRide = (props) => {
           />
         </div>
         <div className={styles["input-group-checkbox"]}>
+          <p className={styles["rider-notice"]}>
+            Cancellation: If you want to cancel the ride after you requested,
+            please contact us through email at{" "}
+            <a href="mailto:babsonkarpule@gmail.com">babsonkarpule@gmail.com</a>
+            . You will be charged 5 dollars as a compensation, and the rest of
+            the money will be returned to your account within 24 hours.{" "}
+            <br></br> <br></br>
+            No Show: If you did not show up for the ride, you will be charged 10
+            dollars as a no show fee, and the rest of money will be returned to
+            your account within 24 hours.
+          </p>
           <div>
             <input
               type="checkbox"
