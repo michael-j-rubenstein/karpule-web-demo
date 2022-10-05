@@ -20,6 +20,7 @@ h3 {
     font-size: 1.4rem;
     padding: 0;
     margin: 0;
+    margin-bottom: 0.5rem;
     max-width: 10rem;
     word-wrap: break-word;
 }
@@ -98,12 +99,25 @@ h3 {
     
 }
 
+@media screen and (min-width: 650px) {
+    h3 {
+        max-width: 18rem;
+    }
+}
 
 @media screen and (min-width: 768px) {
     
     h3 {
         font-size: 1.5rem;
-        max-width: 28rem;
+        max-width: 25rem;
     }
     
+}
+
+@media screen and (min-width: 850px) {
+    
+    h3 {
+        max-width: 28rem;
+        margin-bottom: 0.5rem;
+    }
 }
