@@ -7,6 +7,7 @@ import { useRef, useState } from "react";
 
 import { firestore } from "../../firebase";
 import { doc, setDoc } from "@firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 
 const isEmpty = (value) => value.trim() === "";
 const isValidEmail = (value) => {
@@ -164,13 +165,18 @@ const PostRide = (props) => {
       confirm: confirmInputRef.current.value,
     };
 
-    // try {
-    //   addDoc(ref, newData);
-    // } catch (e) {
-    //   console.log(e);
-    // }
+    const fetchRideNum = async () => {
+      const ridersSnapshot = await getDocs(collection(firestore, "rides"));
+      var ridesNum = 0;
+      ridersSnapshot.forEach(async (doc) => {
+        ridesNum += 1;
+      });
+      return ridesNum;
+    };
 
-    const rideID = `ride-${props.numRides + 1}`;
+    var ridesNum = await fetchRideNum();
+
+    const rideID = `ride-${ridesNum + 1}`;
 
     const ref = doc(firestore, "rides", rideID);
     await setDoc(ref, newData);

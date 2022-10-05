@@ -12,8 +12,6 @@ const App = () => {
   const [riders, setRiders] = useState({});
   const [onChange, setOnChange] = useState(false);
 
-  console.log(numRides);
-
   const showRideFormHandler = () => {
     setShowRideForm(true);
   };
