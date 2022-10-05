@@ -7,7 +7,7 @@ import styles from "./JoinRide.module.css";
 import closeIcon from "../../images/close.svg";
 
 import { firestore } from "../../firebase";
-import { doc, updateDoc } from "@firebase/firestore";
+import { doc, updateDoc, getDoc } from "@firebase/firestore";
 import { getStorage, ref, uploadBytes } from "firebase/storage";
 
 const isEmpty = (value) => value.trim() === "";
@@ -54,8 +54,6 @@ const JoinRide = (props) => {
 
     if (formNotValid) return;
 
-    console.log(props.rideId);
-
     // await fetch(
     //   "https://karpule-pilot-test-2-default-rtdb.firebaseio.com/rides/" +
     //     props.rideId +
@@ -73,7 +71,14 @@ const JoinRide = (props) => {
     //   }
     // );
 
-    const riderNum = Object.keys(props.riders).length;
+    const fetchRiders = async () => {
+      const docRef = doc(firestore, "rides", props.rideId);
+      const docSnap = await getDoc(docRef);
+      return docSnap.data().riders;
+    };
+
+    const riders = await fetchRiders();
+    const riderNum = Object.keys(riders).length;
     const riderKey = `rider-${riderNum + 1}`;
 
     const storage = getStorage();
@@ -94,7 +99,7 @@ const JoinRide = (props) => {
     };
 
     try {
-      updateDoc(rideRef, { riders: { ...props.riders, [riderKey]: newData } });
+      updateDoc(rideRef, { riders: { ...riders, [riderKey]: newData } });
     } catch (e) {
       console.log(e);
     }
