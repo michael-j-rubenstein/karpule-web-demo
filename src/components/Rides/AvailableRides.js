@@ -57,7 +57,9 @@ const AvailableRides = (props) => {
       const ridersSnapshot = await getDocs(collection(firestore, "rides"));
 
       const loadedRides = [];
+      var numRides = 0;
       ridersSnapshot.forEach(async (doc) => {
+        numRides += 1;
         const responseData = doc.data();
         const dateData = await responseData.date.split("-");
         const timeData = await responseData.time.split(":");
@@ -78,7 +80,7 @@ const AvailableRides = (props) => {
           riders: riders ? responseData.riders : {},
         });
         setRides(loadedRides);
-        findRidesHandler(loadedRides.length);
+        findRidesHandler(numRides);
       });
     };
 
