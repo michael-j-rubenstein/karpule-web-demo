@@ -127,7 +127,7 @@ const JoinRide = (props) => {
         <div
           className={`${styles["input-group"]} ${styles["single-input-group"]}`}
         >
-          <label htmlFor="number">Number</label>
+          <label htmlFor="number">Phone Number</label>
           <input
             inputMode="numeric"
             id="number"
