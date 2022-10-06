@@ -8,6 +8,7 @@ import { useRef, useState } from "react";
 import { firestore } from "../../firebase";
 import { doc, setDoc } from "@firebase/firestore";
 import { collection, getDocs } from "firebase/firestore";
+import emailjs from "emailjs-com";
 
 const isEmpty = (value) => value.trim() === "";
 const isValidEmail = (value) => {
@@ -177,6 +178,15 @@ const PostRide = (props) => {
     var ridesNum = await fetchRideNum();
 
     const rideID = `ride-${ridesNum + 1}`;
+
+    emailjs.init("NSua3t0CBJQ9MT2pJ");
+    emailjs.send("service_yvf12eh", "template_enj0z3h", {
+      name: newData.firstName,
+      destination: newData.dest,
+      time: newData.time,
+      seats: newData.seats,
+      email: newData.email,
+    });
 
     const ref = doc(firestore, "rides", rideID);
     await setDoc(ref, newData);

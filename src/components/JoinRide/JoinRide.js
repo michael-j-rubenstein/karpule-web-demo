@@ -9,6 +9,7 @@ import closeIcon from "../../images/close.svg";
 import { firestore } from "../../firebase";
 import { doc, updateDoc, getDoc } from "@firebase/firestore";
 import { getStorage, ref, uploadBytes } from "firebase/storage";
+import emailjs from "emailjs-com";
 
 const isEmpty = (value) => value.trim() === "";
 const isValidEmail = (value) => {
@@ -74,10 +75,11 @@ const JoinRide = (props) => {
     const fetchRiders = async () => {
       const docRef = doc(firestore, "rides", props.rideId);
       const docSnap = await getDoc(docRef);
-      return docSnap.data().riders;
+      return docSnap.data();
     };
 
-    const riders = await fetchRiders();
+    const rideData = await fetchRiders();
+    const riders = rideData.riders;
     const riderNum = riders !== undefined ? Object.keys(riders).length : 0;
     const riderKey = `rider-${riderNum + 1}`;
 
@@ -97,6 +99,14 @@ const JoinRide = (props) => {
       paymentFile: fileInputRef.current.value,
       confirm: confirmInputRef.current.value,
     };
+
+    emailjs.init("NSua3t0CBJQ9MT2pJ");
+    emailjs.send("service_yvf12eh", "template_5gzqd2j", {
+      name: newData.firstName,
+      dest: rideData.destination,
+      time: rideData.time,
+      email: newData.email,
+    });
 
     try {
       updateDoc(rideRef, { riders: { ...riders, [riderKey]: newData } });
