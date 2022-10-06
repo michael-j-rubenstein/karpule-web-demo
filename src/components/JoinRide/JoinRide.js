@@ -87,7 +87,7 @@ const JoinRide = (props) => {
     const storageRef = ref(storage, `${props.rideId}-${riderKey}`);
 
     uploadBytes(storageRef, file).then((snapshot) => {
-      console.log("uploaded blob or file!");
+      // console.log("uploaded blob or file!");
     });
 
     const rideRef = doc(firestore, "rides/" + props.rideId);
