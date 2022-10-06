@@ -21,9 +21,18 @@
     background: transparent;
     border: 0;
     position: absolute;
-    right: 0rem;
-    top: 1.4rem;
+    top: 1.45rem;
     overflow: hidden;
+}
+
+.header a:first-of-type {
+    left: 0;
+    top: 1.45rem;
+}
+
+.header a:last-of-type {
+    right: 0;
+    top: 1.45rem;
 }
 
 .header a:hover {
@@ -33,6 +42,11 @@
 }
 
 .svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.ins {
     width: 1.5rem;
     height: 1.5rem;
 }
@@ -50,11 +64,4 @@
     z-index: 0;
     object-fit: cover;
     overflow: hidden;
-}
-
-@media screen and (min-width: 500px) {
-    .header a {
-        right: 0rem;
-        top: 1.4rem
-    }
 }
