@@ -78,7 +78,8 @@ const JoinRide = (props) => {
     };
 
     const riders = await fetchRiders();
-    const riderNum = Object.keys(riders).length;
+    console.log(riders);
+    const riderNum = riders !== undefined ? Object.keys(riders).length : 0;
     const riderKey = `rider-${riderNum + 1}`;
 
     const storage = getStorage();
