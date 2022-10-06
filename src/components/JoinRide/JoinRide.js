@@ -103,7 +103,7 @@ const JoinRide = (props) => {
     emailjs.init("NSua3t0CBJQ9MT2pJ");
     emailjs.send("service_yvf12eh", "template_5gzqd2j", {
       name: newData.firstName,
-      dest: rideData.destination,
+      destination: rideData.destination,
       time: rideData.time,
       email: newData.email,
     });
